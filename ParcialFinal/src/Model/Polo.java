@@ -27,10 +27,12 @@ public class Polo implements Runnable {
 	}
 
 	public void draw(PApplet app) {
-		app.fill(255);
+		app.fill(247,233,233);
+		app.noStroke();
 		app.ellipse(posX, posY, Size, Size);
 		app.fill(0);
-		app.text("Polo," + posX + "," + posY, posX, posY);
+		app.fill(247,190,191);
+		app.text( posX + "," + posY, posX-Size, posY-Size);
 		// called();
 	}
 

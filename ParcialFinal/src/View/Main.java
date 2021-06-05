@@ -38,7 +38,7 @@ public class Main extends PApplet {
 
 	public void draw() {
 
-		background(217, 184, 148);
+		background(255);
 
 		marco.draw(this);
 		new Thread(marco).start();

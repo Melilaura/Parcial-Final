@@ -28,9 +28,11 @@ public class Marco implements Runnable {
 	}
 
 	public void draw(PApplet app) {
+		app.fill(155,184,255);
+		app.noStroke();
 		app.ellipse(posX, posY, Size, Size);
-		app.fill(0);
-		app.text("MARCO", posX, posY);
+		app.fill(211,223,249);
+		app.text("MARCO", posX, posY+Size);
 		polo = new Polo(0, 0, 0, app);
 	}
 
@@ -86,7 +88,7 @@ public class Marco implements Runnable {
 
 	public void call() {
 		if (call == true) {
-			app.text("MARCO", posX, posY - (Size + 5));
+			app.text("MARCO", posX-Size, posY-Size);
 		}
 	}
 
