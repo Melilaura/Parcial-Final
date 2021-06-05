@@ -9,6 +9,7 @@ public class Marco implements Runnable {
 	public int Size;
 	public int DirX;
 	public int DirY;
+
 	boolean call;
 	private PApplet app;
 
@@ -19,8 +20,10 @@ public class Marco implements Runnable {
 		this.posX = posX;
 		this.posY = posY;
 		this.Size = Size;
-		this.DirX = -2;
-		this.DirY = -2;
+		this.DirX = 2;
+		this.DirY = 2;
+		
+		
 		this.app = app;
 	}
 
@@ -35,19 +38,20 @@ public class Marco implements Runnable {
 
 		move();
 		collision();
+		call = true;
+		call();
 
 		try {
 
 			Thread.sleep(2000);
-			for (int contar = 0; contar < 5; contar++) {
-				System.out.println("MARCO");
-				call = true;
-				call();
-			}
+			
+				
+			
 
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
+			
 
 		}
 
@@ -56,25 +60,27 @@ public class Marco implements Runnable {
 	public void move() {
 		posY += DirY;
 		posX += DirX;
-
+		
+		 
+		 
 	}
 
 	public void collision() {
 
 		if (posX - (Size + 10) / 2 < 0) {
-			DirX = 2;
+			DirX = 1;
 		}
 
 		if (posY - (Size + 10) / 2 < 0) {
-			DirY = 2;
+			DirY = 1;
 		}
 
 		if (posX + (Size + 10) / 2 > 600) {
-			DirX = -2;
+			DirX = -1;
 		}
 
 		if (posY + (Size + 10) / 2 > 600) {
-			DirY = -2;
+			DirY = -1;
 		}
 	}
 
@@ -84,6 +90,7 @@ public class Marco implements Runnable {
 		}
 	}
 
+
 	public boolean getCall() {
 		return call;
 	}
@@ -92,4 +99,31 @@ public class Marco implements Runnable {
 		this.call = call;
 	}
 
+	public int getPosX() {
+		return posX;
+	}
+	
+	public int getPosY() {
+		return posY;
+	}
+	public int getDirX() {
+		return DirX;
+	}
+	public void setDirX(int dirX) {
+		DirX = dirX;
+	}
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+	
+	public void setDirY(int dirY) {
+		DirY = dirY;
+	}
+	
+	
+	
+	
 }

@@ -10,6 +10,7 @@ public class Polo implements Runnable {
 	public int DirX;
 	public int DirY;
 	boolean called;
+	Marco marco;
 	public PApplet app;
 
 	public Polo(int posX, int posY, int Size, PApplet app) {
@@ -20,6 +21,7 @@ public class Polo implements Runnable {
 		this.DirX = (int) app.random(1, -1);
 		this.DirY = (int) app.random(1, -1);
 		this.app = app;
+	
 		called = false;
 
 	}
@@ -29,16 +31,20 @@ public class Polo implements Runnable {
 		app.ellipse(posX, posY, Size, Size);
 		app.fill(0);
 		app.text("Polo," + posX + "," + posY, posX, posY);
+		// called();
 	}
 
 	public void run() {
 
+		
 		move();
 		collision();
+		called();
 
 		try {
 
 			Thread.sleep(2000);
+			//called();
 
 		} catch (InterruptedException e) {
 
@@ -69,6 +75,12 @@ public class Polo implements Runnable {
 
 		if (posY + (Size + 10) / 2 > 600) {
 			DirY = -1;
+		}
+	}
+
+	public void called() {
+		if (called == true ) {
+			app.text("Polo", 300, 300);
 		}
 	}
 
