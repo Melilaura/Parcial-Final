@@ -1,5 +1,8 @@
 package Model;
 
-public class Marco extends Thread {
-
+public class Marco  implements Runnable {
+  
+    public void run(){
+        
+    }
 }
