@@ -58,19 +58,23 @@ public class Main extends PApplet {
 
 		if (marco.getCall() == true) {
 			polo.setCalled(true);
+		}else {
+			polo.setCalled(false);
+			
+		}
+		for (int j = 0; j < politos.size(); j++) {
 
-			for (int j = 0; j < politos.size(); j++) {
-
-				if (polo.getCalled() == true) {
-
-					huntPolitos();
-					catchPolitos();
-
-				}
+			if (polo.getCalled() == true) {
+				
+				//text ("Polo", politos.get(j).getPosX(), politos.get(j).getPosY()+40);
+				huntPolitos();
+				catchPolitos();
 
 			}
 
 		}
+		
+		
 
 	}
 
@@ -101,5 +105,7 @@ public class Main extends PApplet {
 		}
 
 	}
+	
+
 
 }

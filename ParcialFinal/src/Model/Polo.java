@@ -33,26 +33,33 @@ public class Polo implements Runnable {
 		app.fill(0);
 		app.fill(247,190,191);
 		app.text( posX + "," + posY, posX-Size, posY-Size);
-		// called();
 	}
 
 	public void run() {
 
-		
 		move();
 		collision();
+		
+		called = false;
 		called();
 
 		try {
 
 			Thread.sleep(2000);
-			//called();
+			
+			
 
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void called() {
+		if (called == true ) {
+			app.text ("Polo", posX, posY+40);
+		}
 	}
 
 	public void move() {
@@ -80,11 +87,7 @@ public class Polo implements Runnable {
 		}
 	}
 
-	public void called() {
-		if (called == true ) {
-			app.text("Polo", 300, 300);
-		}
-	}
+	
 
 	public int getPosX() {
 		return posX;

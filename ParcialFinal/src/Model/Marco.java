@@ -40,14 +40,17 @@ public class Marco implements Runnable {
 
 		move();
 		collision();
+		
 		call = true;
 		call();
+		
 
 		try {
 
+			
 			Thread.sleep(2000);
 			
-				
+			
 			
 
 		} catch (InterruptedException e) {
