@@ -55,15 +55,15 @@ public class Main extends PApplet {
 	public void call() {
 		
 		if(marco.getCall()==true) {
-			System.out.println("Marco");
-			text("MARCO",200,100);
-			polo.setMe(true);	
-			
-			if(polo.getMe()==true) {
-				System.out.println("polo");
-				text("POLO",200,100);
+			polo.setCalled(true);
+				
+		
+			if(polo.getCalled()==true) {
+				text("POLO",300,150);
+				marco.setCall(false);
 		 
 		} 
+
 		}
 
 	}

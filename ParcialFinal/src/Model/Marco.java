@@ -1,4 +1,5 @@
 package Model;
+
 import processing.core.PApplet;
 
 public class Marco implements Runnable {
@@ -18,8 +19,8 @@ public class Marco implements Runnable {
 		this.posX = posX;
 		this.posY = posY;
 		this.Size = Size;
-		this.DirX = 2;
-		this.DirY = 2;
+		this.DirX = -2;
+		this.DirY = -2;
 		this.app = app;
 	}
 
@@ -27,6 +28,7 @@ public class Marco implements Runnable {
 		app.ellipse(posX, posY, Size, Size);
 		app.fill(0);
 		app.text("MARCO", posX, posY);
+		polo = new Polo(0, 0, 0, app);
 	}
 
 	public void run() {
@@ -35,15 +37,18 @@ public class Marco implements Runnable {
 		collision();
 
 		try {
-			
-			Thread.sleep(7000);
-			
-			call=true;			
+
+			Thread.sleep(2000);
+			for (int contar = 0; contar < 5; contar++) {
+				System.out.println("MARCO");
+				call = true;
+				call();
+			}
 
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
-			call=false;
+
 		}
 
 	}
@@ -51,7 +56,6 @@ public class Marco implements Runnable {
 	public void move() {
 		posY += DirY;
 		posX += DirX;
-		
 
 	}
 
@@ -73,8 +77,19 @@ public class Marco implements Runnable {
 			DirY = -2;
 		}
 	}
-	
+
+	public void call() {
+		if (call == true) {
+			app.text("MARCO", posX, posY - (Size + 5));
+		}
+	}
+
 	public boolean getCall() {
 		return call;
 	}
+
+	public void setCall(boolean call) {
+		this.call = call;
+	}
+
 }
